@@ -19,6 +19,85 @@
   <meta name="twitter:description" content="Open-source tools for security analysis, health classification, and building automation.">
   <meta name="twitter:image" content="https://copelabs.dev/og.png">
 
+  <!-- Canonical + discovery -->
+  <link rel="canonical" href="https://copelabs.dev/">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <link rel="author" href="/humans.txt">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow">
+  <meta name="bingbot" content="index, follow">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="color-scheme" content="dark">
+  <meta name="generator" content="hand-coded">
+  <meta name="geo.region" content="US-TN">
+  <meta name="geo.placename" content="Nashville">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cope Labs LLC",
+    "url": "https://copelabs.dev",
+    "description": "Open-source tools for security analysis, health classification, and building automation.",
+    "foundingDate": "2026-03",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nashville",
+      "addressRegion": "TN",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://github.com/Cope-Labs",
+      "https://pypi.org/user/copelabs/"
+    ],
+    "knowsAbout": [
+      "cybersecurity",
+      "vulnerability scanning",
+      "building automation",
+      "HVAC controls",
+      "health classification",
+      "open source software"
+    ],
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "SoftwareApplication",
+          "name": "selvo",
+          "url": "https://selvo.dev",
+          "applicationCategory": "SecurityApplication",
+          "description": "CVE scanner for Linux servers. Scans installed packages, checks 8 data sources, ranks by blast radius and exploit probability.",
+          "operatingSystem": "Linux",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "SoftwareSourceCode",
+          "name": "margin",
+          "url": "https://pypi.org/project/margin/",
+          "codeRepository": "https://github.com/Cope-Labs/margin",
+          "programmingLanguage": "Python",
+          "description": "Typed health classification library. Number in, health status out.",
+          "license": "https://opensource.org/licenses/MIT"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <!-- Security (meta fallback — real headers set in Cloudflare) -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; script-src 'self' static.cloudflareinsights.com; connect-src static.cloudflareinsights.com; font-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none';">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230a0a0a'/><text x='50' y='68' font-size='52' font-family='system-ui' font-weight='700' fill='%237cb3ff' text-anchor='middle'>CL</text></svg>">
 
@@ -225,5 +304,8 @@
     </footer>
 
   </div>
+  <!-- Cloudflare Web Analytics — enable at dash.cloudflare.com → copelabs.dev → Web Analytics -->
+  <!-- Replace REPLACE_WITH_CF_TOKEN with your actual beacon token -->
+  <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "REPLACE_WITH_CF_TOKEN"}'></script> -->
 </body>
 </html>

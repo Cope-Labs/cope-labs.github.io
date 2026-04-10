@@ -1,0 +1,12 @@
+/* TEAM */
+Name: Cope Labs LLC
+Location: Nashville, TN
+Site: https://copelabs.dev
+
+/* SITE */
+Last update: 2026-04-08
+Language: English
+Standards: HTML5, CSS3
+Doctype: HTML5
+Components: Static HTML, no frameworks
+Hosting: GitHub Pages + Cloudflare

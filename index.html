@@ -3,93 +3,227 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cope Labs</title>
-  <meta name="description" content="Software tools for security, monitoring, and applied research.">
+  <title>Cope Labs &mdash; Security, Monitoring, and Applied Research</title>
+  <meta name="description" content="Cope Labs builds open-source tools for security analysis, health classification, and building automation. Based in Nashville, TN.">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://copelabs.dev/">
+  <meta property="og:title" content="Cope Labs">
+  <meta property="og:description" content="Open-source tools for security analysis, health classification, and building automation.">
+  <meta property="og:image" content="https://copelabs.dev/og.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Cope Labs">
+  <meta name="twitter:description" content="Open-source tools for security analysis, health classification, and building automation.">
+  <meta name="twitter:image" content="https://copelabs.dev/og.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230a0a0a'/><text x='50' y='68' font-size='52' font-family='system-ui' font-weight='700' fill='%237cb3ff' text-anchor='middle'>CL</text></svg>">
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
       background: #0a0a0a;
-      color: #e0e0e0;
+      color: #d0d0d0;
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      line-height: 1.6;
     }
-    .container {
-      max-width: 600px;
-      padding: 2rem;
+
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem 3rem;
     }
+
+    /* Header */
+    header {
+      margin-bottom: 3.5rem;
+    }
+
     h1 {
-      font-size: 2rem;
-      font-weight: 600;
+      font-size: 2.2rem;
+      font-weight: 700;
       color: #fff;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.02em;
     }
+
     .tagline {
+      color: #777;
+      font-size: 1.05rem;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1.2rem;
+    }
+
+    /* Product cards */
+    .product {
+      margin-bottom: 1.4rem;
+      padding: 1rem 1.2rem;
+      border: 1px solid #1a1a1a;
+      border-radius: 8px;
+      transition: border-color 0.15s;
+    }
+
+    .product:hover {
+      border-color: #2a2a2a;
+    }
+
+    .product-name {
+      display: inline-block;
+      color: #7cb3ff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+    }
+
+    .product-name:hover {
+      text-decoration: underline;
+    }
+
+    .product-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: #555;
+      border: 1px solid #2a2a2a;
+      border-radius: 3px;
+      padding: 0.1rem 0.4rem;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    .product-tag.live { color: #4ade80; border-color: #1a3a2a; }
+    .product-tag.pypi { color: #c084fc; border-color: #2a1a3a; }
+
+    .product-desc {
       color: #888;
-      font-size: 1.1rem;
-      margin-bottom: 2.5rem;
+      font-size: 0.9rem;
+      margin-top: 0.3rem;
     }
-    .projects {
+
+    /* Library list (compact) */
+    .libs {
       list-style: none;
-      margin-bottom: 2.5rem;
     }
-    .projects li {
-      margin-bottom: 1rem;
+
+    .libs li {
+      margin-bottom: 0.7rem;
     }
-    .projects a {
+
+    .libs a {
       color: #7cb3ff;
       text-decoration: none;
       font-weight: 500;
     }
-    .projects a:hover {
+
+    .libs a:hover {
       text-decoration: underline;
     }
-    .projects .desc {
-      color: #888;
-      font-size: 0.9rem;
+
+    .libs .desc {
+      color: #666;
+      font-size: 0.85rem;
     }
-    .contact {
-      color: #888;
-      font-size: 0.9rem;
+
+    /* Footer */
+    footer {
+      padding-top: 2rem;
+      border-top: 1px solid #1a1a1a;
+      color: #444;
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .contact a {
-      color: #7cb3ff;
+
+    footer a {
+      color: #666;
       text-decoration: none;
     }
-    .contact a:hover {
-      text-decoration: underline;
+
+    footer a:hover {
+      color: #7cb3ff;
+    }
+
+    .footer-links a + a {
+      margin-left: 1.2rem;
+    }
+
+    /* Mobile */
+    @media (max-width: 480px) {
+      .page { padding: 2.5rem 1.2rem 2rem; }
+      h1 { font-size: 1.8rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Cope Labs</h1>
-    <p class="tagline">Software tools for security, monitoring, and applied research.</p>
+  <div class="page">
 
-    <ul class="projects">
-      <li>
-        <a href="https://selvo.dev">selvo</a>
-        <span class="desc"> &mdash; CVE scanner for Linux servers</span>
-      </li>
-      <li>
-        <a href="/cairn">cairn</a>
-        <span class="desc"> &mdash; runtime signal capture for AI coding agents</span>
-      </li>
-      <li>
-        <a href="https://github.com/Cope-Labs/margin">margin</a>
-        <span class="desc"> &mdash; typed health classification library</span>
-      </li>
-      <li>
-        <a href="https://github.com/Cope-Labs/margin-ha">margin-ha</a>
-        <span class="desc"> &mdash; health monitoring for Home Assistant</span>
-      </li>
-    </ul>
+    <header>
+      <h1>Cope Labs</h1>
+      <p class="tagline">Security, monitoring, and applied research.</p>
+    </header>
 
-    <p class="contact">
-      <a href="https://github.com/Cope-Labs">GitHub</a>
-    </p>
+    <section>
+      <h2>Products</h2>
+
+      <div class="product">
+        <a href="https://selvo.dev" class="product-name">selvo</a>
+        <span class="product-tag live">live</span>
+        <p class="product-desc">CVE scanner for Linux servers. Scans your actual packages, checks 8 data sources, filters what your distro already patched, ranks by blast radius and exploit probability.</p>
+      </div>
+
+      <div class="product">
+        <a href="https://github.com/sethc5/cairn" class="product-name">cairn</a>
+        <p class="product-desc">Runtime signal capture for AI coding agents. Instruments your Python code, distills failure patterns, and feeds them into agent context so the next session knows what broke.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Open Source</h2>
+
+      <ul class="libs">
+        <li>
+          <a href="https://pypi.org/project/margin/">margin</a>
+          <span class="product-tag pypi">PyPI</span>
+          <span class="desc"> &mdash; typed health classification. Number in, health status out.</span>
+        </li>
+        <li>
+          <a href="https://github.com/Cope-Labs/margin-ha">margin-ha</a>
+          <span class="desc"> &mdash; health monitoring integration for Home Assistant.</span>
+        </li>
+        <li>
+          <a href="https://github.com/sethc5/datum">datum</a>
+          <span class="desc"> &mdash; context-aware data tables with typed nulls and assumptions.</span>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      <span>Cope Labs LLC &middot; Nashville, TN</span>
+      <span class="footer-links">
+        <a href="https://github.com/Cope-Labs">GitHub</a>
+        <a href="https://pypi.org/user/copelabs/">PyPI</a>
+      </span>
+    </footer>
+
   </div>
 </body>
 </html>

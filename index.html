@@ -49,7 +49,8 @@
     },
     "sameAs": [
       "https://github.com/Cope-Labs",
-      "https://pypi.org/user/sethc5/"
+      "https://pypi.org/user/copelabsllc/",
+      "https://www.npmjs.com/~copelabsllc"
     ],
     "knowsAbout": [
       "cybersecurity",
@@ -86,11 +87,29 @@
           "applicationCategory": "SecurityApplication",
           "description": "CVE scanner for Linux servers. Scans installed packages, checks 8 data sources, ranks by blast radius and exploit probability.",
           "operatingSystem": "Linux",
-          "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-          }
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Free",
+              "price": "0",
+              "priceCurrency": "USD",
+              "description": "5 requests/day"
+            },
+            {
+              "@type": "Offer",
+              "name": "Pro",
+              "price": "49",
+              "priceCurrency": "USD",
+              "description": "10,000 requests/day"
+            },
+            {
+              "@type": "Offer",
+              "name": "Enterprise",
+              "price": "299",
+              "priceCurrency": "USD",
+              "description": "1,000,000 requests/day"
+            }
+          ]
         }
       },
       {
@@ -262,9 +281,45 @@
       letter-spacing: 0.08em;
     }
 
-    .product-tag.live { color: #1b6e3a; border-color: rgba(27,110,58,0.25); background: rgba(27,110,58,0.06); }
-    .product-tag.pypi { color: #2f5f9e; border-color: rgba(47,95,158,0.25); background: rgba(47,95,158,0.06); }
-    .product-tag.npm  { color: #cd5d2f; border-color: rgba(205,93,47,0.25); background: rgba(205,93,47,0.06); }
+    .product-tag.saas     { color: #1b6e3a; border-color: rgba(27,110,58,0.3);   background: rgba(27,110,58,0.08); }
+    .product-tag.preview  { color: #8a5a00; border-color: rgba(138,90,0,0.25);   background: rgba(138,90,0,0.06); }
+    .product-tag.research { color: #4a8c5c; border-color: rgba(74,140,92,0.3);   background: rgba(74,140,92,0.07); }
+    .product-tag.pypi     { color: #2f5f9e; border-color: rgba(47,95,158,0.25);  background: rgba(47,95,158,0.06); }
+    .product-tag.npm      { color: #cd5d2f; border-color: rgba(205,93,47,0.25);  background: rgba(205,93,47,0.06); }
+
+    .product-cta {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(205,93,47,0.35);
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .product-cta:hover {
+      color: #a64914;
+      border-bottom-color: #a64914;
+    }
+
+    .product-cta + .product-cta {
+      margin-left: 1.2rem;
+    }
+
+    .product-price {
+      font-family: var(--mono);
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 0.35rem;
+    }
+
+    .product-price strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
 
     .product-desc {
       color: var(--muted);
@@ -356,34 +411,41 @@
 
     <header>
       <h1>Cope Labs</h1>
-      <p class="tagline">Security, monitoring, and applied research.</p>
+      <p class="tagline">Practical tooling for people who monitor things that matter &mdash; servers, systems, and research data.</p>
     </header>
 
     <section>
       <h2>Products</h2>
 
       <div class="product">
-        <a href="https://copelabs.dev/soil-microbiome-pipeline-core/" class="product-name">soil microbiome pipeline</a>
-        <span class="product-tag live">live</span>
-        <p class="product-desc">For researchers and biotech teams. Computational screening of public soil metagenome databases for microbial communities with nitrogen fixation, carbon sequestration, and bioremediation potential. 237,662 communities screened, 12,956 validated candidates.</p>
-      </div>
-
-      <div class="product">
-        <a href="https://copelabs.dev/medicine-actions/" class="product-name">medicine actions</a>
-        <span class="product-tag live">live</span>
-        <p class="product-desc">For clinicians and program reviewers. Inspectable medicine pipeline deliverables with a plain-language walkthrough and downloadable reference spec.</p>
-      </div>
-
-      <div class="product">
         <a href="https://selvo.dev" class="product-name">selvo</a>
-        <span class="product-tag live">live</span>
+        <span class="product-tag saas">SaaS</span>
         <p class="product-desc">For SREs and security teams running Linux. Scans your actual packages, checks 8 data sources, filters what your distro already patched, and ranks by blast radius and exploit probability.</p>
+        <p class="product-price">Free &middot; <strong>Pro $49/mo</strong> &middot; Enterprise $299/mo</p>
+        <a href="https://selvo.dev" class="product-cta">Start scanning &rarr;</a>
+        <a href="mailto:seth@copelabs.dev?subject=selvo" class="product-cta">Talk to Seth &rarr;</a>
       </div>
 
       <div class="product">
         <a href="https://copelabs.dev/cairn/" class="product-name">cairn</a>
-        <span class="product-tag live">live</span>
+        <span class="product-tag preview">preview</span>
         <p class="product-desc">For teams shipping with AI coding agents. Instruments your Python code, distills failure patterns, and feeds them into agent context so the next session knows what broke.</p>
+        <a href="https://copelabs.dev/cairn/" class="product-cta">See how it works &rarr;</a>
+      </div>
+
+      <div class="product">
+        <a href="https://copelabs.dev/soil-microbiome-pipeline-core/" class="product-name">soil microbiome pipeline</a>
+        <span class="product-tag research">research</span>
+        <p class="product-desc">For researchers and biotech teams. Computational screening of public soil metagenome databases for microbial communities with nitrogen fixation, carbon sequestration, and bioremediation potential. <strong>237,662 communities screened, 12,956 validated candidates ready for wet-lab follow-up.</strong></p>
+        <a href="https://copelabs.dev/soil-microbiome-pipeline-core/" class="product-cta">Read the methodology &rarr;</a>
+        <a href="mailto:seth@copelabs.dev?subject=soil%20pipeline%20collaboration" class="product-cta">Collaborate &rarr;</a>
+      </div>
+
+      <div class="product">
+        <a href="https://copelabs.dev/medicine-actions/" class="product-name">medicine actions</a>
+        <span class="product-tag research">research</span>
+        <p class="product-desc">For clinicians and program reviewers. Inspectable medicine pipeline deliverables with a plain-language walkthrough and downloadable reference spec.</p>
+        <a href="https://copelabs.dev/medicine-actions/" class="product-cta">Review the deliverables &rarr;</a>
       </div>
     </section>
 

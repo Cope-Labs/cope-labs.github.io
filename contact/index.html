@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &mdash; Cope Labs</title>
+  <meta name="description" content="Get in touch with Cope Labs.">
+
+  <link rel="canonical" href="https://copelabs.dev/contact/">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta name="color-scheme" content="dark">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <!-- CSP: allow form POST to formspree -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'none'; style-src 'unsafe-inline' fonts.googleapis.com; img-src 'self'; script-src 'self' static.cloudflareinsights.com; connect-src static.cloudflareinsights.com; font-src fonts.gstatic.com; frame-src 'none'; base-uri 'self'; form-action https://formspree.io;">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23f5f1e8'/><text x='50' y='68' font-size='52' font-family='Georgia,serif' font-weight='700' fill='%2316243b' text-anchor='middle'>CL</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f5f1e8;
+      --panel: #ffffff;
+      --ink: #16243b;
+      --muted: #5a6578;
+      --accent: #cd5d2f;
+      --line: rgba(22, 36, 59, 0.12);
+      --line-strong: rgba(22, 36, 59, 0.22);
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --mono: 'IBM Plex Mono', ui-monospace, monospace;
+    }
+
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, #ffe1c9 0%, rgba(255,225,201,0) 42%),
+        radial-gradient(circle at 90% 15%, #d7e6ff 0%, rgba(215,230,255,0) 36%),
+        linear-gradient(170deg, #f7f5ef 0%, #ebe5d8 65%, #e8e2d6 100%);
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: repeating-radial-gradient(circle at 0 0, #000 0 1px, transparent 1px 3px);
+      z-index: 0;
+    }
+
+    .page {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 4.5rem 2rem 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.8rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .back {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 1.5rem;
+      display: inline-block;
+    }
+
+    .back:hover { color: var(--accent); }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+
+    .intro {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 52ch;
+    }
+
+    form {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.8rem;
+    }
+
+    .field {
+      margin-bottom: 1.2rem;
+    }
+
+    label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.4rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea {
+      width: 100%;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      color: var(--ink);
+      background: #fbfaf5;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 0.65rem 0.8rem;
+      line-height: 1.5;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: #ffffff;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+      font-family: var(--sans);
+    }
+
+    select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%235a6578' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.85rem center;
+      padding-right: 2rem;
+    }
+
+    /* Honeypot - hidden from humans, visible to bots */
+    .hp {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    button {
+      font-family: var(--mono);
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: #ffffff;
+      background: var(--ink);
+      border: 1px solid var(--ink);
+      border-radius: 6px;
+      padding: 0.75rem 1.4rem;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: background 0.15s, border-color 0.15s;
+    }
+
+    button:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .privacy {
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.85rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+    .footer-links a + a { margin-left: 1.2rem; }
+
+    @media (max-width: 480px) {
+      .page { padding: 2.5rem 1.2rem 2rem; }
+      h1 { font-size: 1.6rem; }
+      form { padding: 1.3rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="page">
+
+    <header>
+      <a href="/" class="back">&larr; Back</a>
+      <h1>Get in touch</h1>
+      <p class="intro">Questions about selvo, a collaboration idea, or a press inquiry &mdash; send a note. Replies come from Cope Labs.</p>
+    </header>
+
+    <!--
+      Setup: replace REPLACE_WITH_YOUR_FORM_ID with the form ID from formspree.io.
+      Sign up with seth@copelabs.dev (routes to Posteo), create a new form, copy the ID.
+      The _next field redirects to our own thanks page on success.
+    -->
+    <form action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST">
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required autocomplete="name" maxlength="100">
+      </div>
+
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required autocomplete="email" maxlength="200">
+      </div>
+
+      <div class="field">
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject" required>
+          <option value="">Select one</option>
+          <option value="selvo">selvo &mdash; product question</option>
+          <option value="selvo-sales">selvo &mdash; sales / enterprise</option>
+          <option value="margin">margin / margin-ts / margin-ha</option>
+          <option value="soil">soil microbiome pipeline</option>
+          <option value="cairn">cairn</option>
+          <option value="collab">Collaboration / research</option>
+          <option value="press">Press / speaking</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required maxlength="5000" placeholder="Keep it short &mdash; you'll hear back faster."></textarea>
+      </div>
+
+      <!-- Honeypot -->
+      <div class="hp" aria-hidden="true">
+        <label for="_gotcha">Leave this field empty</label>
+        <input type="text" id="_gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+      </div>
+
+      <!-- Redirect back to the site on success -->
+      <input type="hidden" name="_next" value="https://copelabs.dev/thanks/">
+
+      <!-- Subject shown in the inbox -->
+      <input type="hidden" name="_subject" value="copelabs.dev contact form">
+
+      <button type="submit">Send message</button>
+
+      <p class="privacy">Your message goes to Cope Labs. We don't share it, sell it, or subscribe you to anything.</p>
+    </form>
+
+    <footer>
+      <span>Cope Labs LLC &middot; Nashville, TN</span>
+      <span class="footer-links">
+        <a href="/">Home</a>
+        <a href="https://github.com/Cope-Labs">GitHub</a>
+      </span>
+    </footer>
+
+  </div>
+</body>
+</html>

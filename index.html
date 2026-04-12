@@ -124,45 +124,82 @@
   <!-- Security (meta fallback — real headers set in Cloudflare) -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'none'; style-src 'unsafe-inline'; img-src 'self'; script-src 'self' static.cloudflareinsights.com; connect-src static.cloudflareinsights.com; font-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none';">
+        content="default-src 'none'; style-src 'unsafe-inline' fonts.googleapis.com; img-src 'self'; script-src 'self' static.cloudflareinsights.com; connect-src static.cloudflareinsights.com; font-src fonts.gstatic.com; frame-src 'none'; base-uri 'self'; form-action 'none';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%230a0a0a'/><text x='50' y='68' font-size='52' font-family='system-ui' font-weight='700' fill='%237cb3ff' text-anchor='middle'>CL</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23f5f1e8'/><text x='50' y='68' font-size='52' font-family='Georgia,serif' font-weight='700' fill='%2316243b' text-anchor='middle'>CL</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
+    :root {
+      --bg: #f5f1e8;
+      --panel: #ffffff;
+      --ink: #16243b;
+      --muted: #5a6578;
+      --accent: #cd5d2f;
+      --line: rgba(22, 36, 59, 0.12);
+      --soil: #4a8c5c;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --mono: 'IBM Plex Mono', ui-monospace, monospace;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-      background: #0a0a0a;
-      color: #d0d0d0;
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, #ffe1c9 0%, rgba(255,225,201,0) 42%),
+        radial-gradient(circle at 90% 15%, #d7e6ff 0%, rgba(215,230,255,0) 36%),
+        linear-gradient(170deg, #f7f5ef 0%, #ebe5d8 65%, #e8e2d6 100%);
       min-height: 100vh;
-      line-height: 1.6;
+      line-height: 1.65;
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: repeating-radial-gradient(circle at 0 0, #000 0 1px, transparent 1px 3px);
+      z-index: 0;
     }
 
     .page {
-      max-width: 720px;
+      max-width: 820px;
       margin: 0 auto;
-      padding: 4rem 2rem 3rem;
+      padding: 4.5rem 2rem 3rem;
+      position: relative;
+      z-index: 1;
     }
 
     /* Header */
     header {
-      margin-bottom: 3.5rem;
+      margin-bottom: 4rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--line);
     }
 
     h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.4rem;
-      letter-spacing: -0.02em;
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
     }
 
     .tagline {
-      color: #777;
-      font-size: 1.05rem;
+      color: var(--muted);
+      font-size: 1.1rem;
+      font-weight: 400;
     }
 
     /* Sections */
@@ -171,59 +208,69 @@
     }
 
     h2 {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #555;
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--muted);
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 1.2rem;
+      letter-spacing: 0.12em;
+      margin-bottom: 1.4rem;
     }
 
     /* Product cards */
     .product {
-      margin-bottom: 1.4rem;
-      padding: 1rem 1.2rem;
-      border: 1px solid #1a1a1a;
-      border-radius: 8px;
-      transition: border-color 0.15s;
+      margin-bottom: 1.2rem;
+      padding: 1.2rem 1.4rem;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      transition: border-color 0.2s, transform 0.2s;
     }
 
     .product:hover {
-      border-color: #2a2a2a;
+      border-color: var(--accent);
+      transform: translateY(-1px);
     }
 
     .product-name {
+      font-family: var(--serif);
       display: inline-block;
-      color: #7cb3ff;
+      color: var(--ink);
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1.05rem;
+      font-weight: 400;
+      font-size: 1.35rem;
+      letter-spacing: -0.01em;
     }
 
     .product-name:hover {
-      text-decoration: underline;
+      color: var(--accent);
     }
 
     .product-tag {
       display: inline-block;
-      font-size: 0.7rem;
+      font-family: var(--mono);
+      font-size: 0.65rem;
       font-weight: 500;
-      color: #555;
-      border: 1px solid #2a2a2a;
+      color: var(--muted);
+      background: transparent;
+      border: 1px solid var(--line);
       border-radius: 3px;
-      padding: 0.1rem 0.4rem;
-      margin-left: 0.5rem;
+      padding: 0.15rem 0.5rem;
+      margin-left: 0.6rem;
       vertical-align: middle;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
-    .product-tag.live { color: #4ade80; border-color: #1a3a2a; }
-    .product-tag.pypi { color: #c084fc; border-color: #2a1a3a; }
-    .product-tag.npm { color: #f87171; border-color: #3a1a1a; }
+    .product-tag.live { color: #1b6e3a; border-color: rgba(27,110,58,0.25); background: rgba(27,110,58,0.06); }
+    .product-tag.pypi { color: #2f5f9e; border-color: rgba(47,95,158,0.25); background: rgba(47,95,158,0.06); }
+    .product-tag.npm  { color: #cd5d2f; border-color: rgba(205,93,47,0.25); background: rgba(205,93,47,0.06); }
 
     .product-desc {
-      color: #888;
-      font-size: 0.9rem;
-      margin-top: 0.3rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 0.5rem;
+      line-height: 1.55;
     }
 
     /* Library list (compact) */
@@ -232,29 +279,38 @@
     }
 
     .libs li {
-      margin-bottom: 0.7rem;
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .libs li:last-child {
+      border-bottom: none;
     }
 
     .libs a {
-      color: #7cb3ff;
+      font-family: var(--mono);
+      color: var(--ink);
       text-decoration: none;
       font-weight: 500;
+      font-size: 0.95rem;
     }
 
     .libs a:hover {
-      text-decoration: underline;
+      color: var(--accent);
     }
 
     .libs .desc {
-      color: #666;
-      font-size: 0.85rem;
+      color: var(--muted);
+      font-size: 0.9rem;
     }
 
     /* Footer */
     footer {
+      margin-top: 4rem;
       padding-top: 2rem;
-      border-top: 1px solid #1a1a1a;
-      color: #444;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
       font-size: 0.85rem;
       display: flex;
       justify-content: space-between;
@@ -262,12 +318,12 @@
     }
 
     footer a {
-      color: #666;
+      color: var(--muted);
       text-decoration: none;
     }
 
     footer a:hover {
-      color: #7cb3ff;
+      color: var(--accent);
     }
 
     .footer-links a + a {
@@ -283,6 +339,7 @@
   </style>
 </head>
 <body>
+  <div class="noise" aria-hidden="true"></div>
   <div class="page">
 
     <header>

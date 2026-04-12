@@ -124,7 +124,7 @@
   <!-- Security (meta fallback — real headers set in Cloudflare) -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta http-equiv="Content-Security-Policy"
-        content="default-src 'none'; style-src 'unsafe-inline' fonts.googleapis.com; img-src 'self'; script-src 'self' static.cloudflareinsights.com; connect-src static.cloudflareinsights.com; font-src fonts.gstatic.com; frame-src 'none'; base-uri 'self'; form-action 'none';">
+        content="default-src 'none'; style-src 'unsafe-inline' fonts.googleapis.com; img-src 'self' img.shields.io static.pepy.tech; script-src 'self' static.cloudflareinsights.com; connect-src static.cloudflareinsights.com; font-src fonts.gstatic.com; frame-src 'none'; base-uri 'self'; form-action 'none';">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <!-- Favicon -->
@@ -305,6 +305,18 @@
       font-size: 0.9rem;
     }
 
+    .libs .badges {
+      display: inline-flex;
+      gap: 0.35rem;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+
+    .libs .badges img {
+      height: 16px;
+      vertical-align: middle;
+    }
+
     /* Footer */
     footer {
       margin-top: 4rem;
@@ -353,25 +365,25 @@
       <div class="product">
         <a href="https://copelabs.dev/soil-microbiome-pipeline-core/" class="product-name">soil microbiome pipeline</a>
         <span class="product-tag live">live</span>
-        <p class="product-desc">Computational screening of public soil metagenome databases for microbial communities with nitrogen fixation, carbon sequestration, and bioremediation potential. 237,662 communities screened, 12,956 validated candidates.</p>
+        <p class="product-desc">For researchers and biotech teams. Computational screening of public soil metagenome databases for microbial communities with nitrogen fixation, carbon sequestration, and bioremediation potential. 237,662 communities screened, 12,956 validated candidates.</p>
       </div>
 
       <div class="product">
         <a href="https://copelabs.dev/medicine-actions/" class="product-name">medicine actions</a>
         <span class="product-tag live">live</span>
-        <p class="product-desc">Inspectable medicine pipeline deliverables with a plain-language walkthrough and downloadable reference spec.</p>
+        <p class="product-desc">For clinicians and program reviewers. Inspectable medicine pipeline deliverables with a plain-language walkthrough and downloadable reference spec.</p>
       </div>
 
       <div class="product">
         <a href="https://selvo.dev" class="product-name">selvo</a>
         <span class="product-tag live">live</span>
-        <p class="product-desc">CVE scanner for Linux servers. Scans your actual packages, checks 8 data sources, filters what your distro already patched, ranks by blast radius and exploit probability.</p>
+        <p class="product-desc">For SREs and security teams running Linux. Scans your actual packages, checks 8 data sources, filters what your distro already patched, and ranks by blast radius and exploit probability.</p>
       </div>
 
       <div class="product">
         <a href="https://copelabs.dev/cairn/" class="product-name">cairn</a>
         <span class="product-tag live">live</span>
-        <p class="product-desc">Runtime signal capture for AI coding agents. Instruments your Python code, distills failure patterns, and feeds them into agent context so the next session knows what broke.</p>
+        <p class="product-desc">For teams shipping with AI coding agents. Instruments your Python code, distills failure patterns, and feeds them into agent context so the next session knows what broke.</p>
       </div>
     </section>
 
@@ -382,29 +394,43 @@
         <li>
           <a href="https://pypi.org/project/margin/">margin</a>
           <span class="product-tag pypi">PyPI</span>
+          <span class="badges">
+            <a href="https://pypi.org/project/margin/"><img src="https://img.shields.io/pypi/v/margin.svg?label=version" alt="margin version"></a>
+            <a href="https://pepy.tech/project/margin"><img src="https://static.pepy.tech/badge/margin/month" alt="margin downloads/month"></a>
+          </span>
           <span class="desc"> &mdash; typed health classification. Number in, health status out.</span>
         </li>
         <li>
           <a href="https://www.npmjs.com/package/margin-ts">margin-ts</a>
           <span class="product-tag npm">npm</span>
+          <span class="badges">
+            <a href="https://www.npmjs.com/package/margin-ts"><img src="https://img.shields.io/npm/v/margin-ts.svg?label=version" alt="margin-ts version"></a>
+            <a href="https://www.npmjs.com/package/margin-ts"><img src="https://img.shields.io/npm/dm/margin-ts.svg" alt="margin-ts downloads/month"></a>
+          </span>
           <span class="desc"> &mdash; TypeScript port of margin. Zero dependencies. Express, Next.js, and vitest adapters.</span>
+        </li>
+        <li>
+          <a href="https://pypi.org/project/datum/">datum</a>
+          <span class="product-tag pypi">PyPI</span>
+          <span class="badges">
+            <a href="https://pypi.org/project/datum/"><img src="https://img.shields.io/pypi/v/datum.svg?label=version" alt="datum version"></a>
+            <a href="https://pepy.tech/project/datum"><img src="https://static.pepy.tech/badge/datum/month" alt="datum downloads/month"></a>
+          </span>
+          <span class="desc"> &mdash; context-aware data tables with typed nulls and assumptions.</span>
         </li>
         <li>
           <a href="https://github.com/Cope-Labs/margin-ha">margin-ha</a>
           <span class="desc"> &mdash; health monitoring integration for Home Assistant.</span>
         </li>
-        <li>
-          <a href="https://github.com/sethc5/datum">datum</a>
-          <span class="desc"> &mdash; context-aware data tables with typed nulls and assumptions.</span>
-        </li>
       </ul>
     </section>
 
     <footer>
-      <span>Cope Labs LLC &middot; Nashville, TN</span>
+      <span>Cope Labs LLC &middot; Nashville, TN &middot; <a href="mailto:seth@copelabs.dev">seth@copelabs.dev</a></span>
       <span class="footer-links">
         <a href="https://github.com/Cope-Labs">GitHub</a>
-        <a href="https://pypi.org/user/sethc5/">PyPI</a>
+        <a href="https://pypi.org/user/copelabsllc/">PyPI</a>
+        <a href="https://www.npmjs.com/~copelabsllc">npm</a>
       </span>
     </footer>
 

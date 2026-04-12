@@ -5,142 +5,254 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cairn &mdash; Cope Labs</title>
   <meta name="description" content="Runtime signal capture and distillation for AI coding agents. Captures test failures, runtime traces, and structural patterns — distills them into agent context that compounds over time.">
+  <meta name="robots" content="index,follow">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23f5f1e8'/><text x='50' y='68' font-size='52' font-family='Georgia,serif' font-weight='700' fill='%2316243b' text-anchor='middle'>CL</text></svg>">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #f5f1e8;
+      --panel: #ffffff;
+      --ink: #16243b;
+      --muted: #5a6578;
+      --accent: #cd5d2f;
+      --cairn: #6b7fa0;
+      --line: rgba(22, 36, 59, 0.12);
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+    }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #0a0a0a;
-      color: #e0e0e0;
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 8%, #ffe1c9 0%, rgba(255,225,201,0) 42%),
+        radial-gradient(circle at 90% 15%, #d7e6ff 0%, rgba(215,230,255,0) 36%),
+        linear-gradient(170deg, #f7f5ef 0%, #ebe5d8 65%, #e8e2d6 100%);
       min-height: 100vh;
+      line-height: 1.65;
     }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image: repeating-radial-gradient(circle at 0 0, #000 0 1px, transparent 1px 3px);
+      z-index: 0;
+    }
+
     .container {
-      max-width: 680px;
+      max-width: 780px;
       margin: 0 auto;
-      padding: 3rem 2rem;
+      padding: 3.5rem 2rem 3rem;
+      position: relative;
+      z-index: 1;
     }
+
     .back {
-      color: #888;
+      font-family: var(--mono);
+      color: var(--muted);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.02em;
     }
-    .back:hover { color: #7cb3ff; }
+    .back:hover { color: var(--accent); }
+
+    header {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--cairn);
+      margin: 2rem 0 0.5rem;
+    }
+
     h1 {
-      font-size: 2.2rem;
-      font-weight: 600;
-      color: #fff;
-      margin: 1.5rem 0 0.5rem;
+      font-family: var(--serif);
+      font-size: 3.5rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
     }
+
     .tagline {
-      color: #888;
-      font-size: 1.15rem;
-      margin-bottom: 2rem;
-      line-height: 1.5;
-    }
-    .install {
-      background: #161616;
-      border: 1px solid #333;
-      border-radius: 6px;
-      padding: 1rem 1.25rem;
-      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-      font-size: 0.95rem;
-      color: #7cb3ff;
-      margin-bottom: 2.5rem;
-      overflow-x: auto;
-    }
-    .install .comment { color: #555; }
-    h2 {
+      color: var(--muted);
       font-size: 1.2rem;
-      font-weight: 600;
-      color: #fff;
-      margin: 2rem 0 0.75rem;
+      line-height: 1.5;
+      max-width: 42em;
     }
+
+    .install {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+      font-family: var(--mono);
+      font-size: 0.9rem;
+      color: var(--ink);
+      margin-bottom: 3rem;
+      overflow-x: auto;
+      box-shadow: 0 2px 12px rgba(22,36,59,0.04);
+    }
+    .install .comment { color: var(--muted); }
+    .install .cmd { color: var(--accent); }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin: 2.5rem 0 1rem;
+      letter-spacing: -0.01em;
+    }
+
     p, li {
-      color: #ccc;
-      line-height: 1.7;
-      margin-bottom: 0.5rem;
+      color: var(--ink);
+      line-height: 1.65;
+      margin-bottom: 0.6rem;
     }
+
     ul {
       padding-left: 1.25rem;
       margin-bottom: 1.5rem;
     }
+
     .flywheel {
-      background: #161616;
-      border: 1px solid #333;
-      border-radius: 6px;
-      padding: 1.25rem;
-      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
-      font-size: 0.85rem;
-      color: #888;
-      margin: 1rem 0 2rem;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.4rem;
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin: 1.5rem 0 2rem;
       white-space: pre;
       overflow-x: auto;
+      line-height: 1.5;
     }
+
     .features {
       list-style: none;
       padding: 0;
       margin-bottom: 2rem;
     }
     .features li {
-      margin-bottom: 1rem;
-      padding-left: 1.5rem;
+      margin-bottom: 1.1rem;
+      padding-left: 1.6rem;
       position: relative;
+      color: var(--muted);
     }
     .features li::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 0.55rem;
+      top: 0.6rem;
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: #7cb3ff;
+      background: var(--cairn);
     }
     .features strong {
-      color: #fff;
+      color: var(--ink);
+      font-weight: 600;
     }
+
     a {
-      color: #7cb3ff;
+      color: var(--accent);
       text-decoration: none;
     }
     a:hover { text-decoration: underline; }
+
+    code {
+      font-family: var(--mono);
+      font-size: 0.88em;
+      background: rgba(22,36,59,0.05);
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+      color: var(--ink);
+    }
+
     .links {
-      margin-top: 2.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #222;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line);
       display: flex;
       gap: 2rem;
-      font-size: 0.95rem;
+      font-family: var(--mono);
+      font-size: 0.9rem;
     }
+
     .badge {
       display: inline-block;
-      background: #1a1a2e;
-      border: 1px solid #333;
+      font-family: var(--mono);
+      background: rgba(107,127,160,0.1);
+      border: 1px solid rgba(107,127,160,0.25);
       border-radius: 4px;
-      padding: 0.2rem 0.6rem;
-      font-size: 0.8rem;
-      color: #7cb3ff;
-      font-family: 'SF Mono', monospace;
+      padding: 0.15rem 0.55rem;
+      font-size: 0.78rem;
+      color: var(--cairn);
     }
+
     .extras {
-      margin-top: 1rem;
-      color: #666;
+      margin-top: 1.5rem;
+      color: var(--muted);
       font-size: 0.9rem;
+      font-style: italic;
+    }
+
+    footer {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--muted); }
+    footer a:hover { color: var(--accent); }
+
+    @media (max-width: 640px) {
+      .container { padding: 2.5rem 1.2rem 2rem; }
+      h1 { font-size: 2.4rem; }
+      .tagline { font-size: 1.05rem; }
+      .links { flex-wrap: wrap; gap: 1rem; }
     }
   </style>
 </head>
 <body>
+  <div class="noise" aria-hidden="true"></div>
   <div class="container">
-    <a href="/" class="back">&larr; copelabs.dev</a>
+    <a href="/" class="back">&larr; Cope Labs</a>
 
-    <h1>Cairn</h1>
-    <p class="tagline">Runtime signal capture and distillation for AI coding agents.</p>
+    <header>
+      <p class="eyebrow">Developer Tooling</p>
+      <h1>Cairn</h1>
+      <p class="tagline">Runtime signal capture and distillation for AI coding agents. Instruments your Python code, distills failure patterns, and feeds them into agent context so the next session knows what broke.</p>
+    </header>
 
     <div class="install">
-      <span class="comment"># install</span><br>
-      pip install cairn-ai<br>
-      <br>
-      <span class="comment"># with margin-powered health analysis</span><br>
-      pip install cairn-ai[health]
+<span class="comment"># install</span>
+<span class="cmd">pip install cairn-ai</span>
+
+<span class="comment"># with margin-powered health analysis</span>
+<span class="cmd">pip install cairn-ai[health]</span>
     </div>
 
     <h2>The problem</h2>
@@ -195,6 +307,10 @@ agent writes better code &rarr; richer signal &rarr; repeat</div>
       <a href="https://github.com/Cope-Labs/cairn">GitHub</a>
       <a href="https://github.com/Cope-Labs/cairn#quickstart">Quickstart</a>
     </div>
+
+    <footer>
+      <span>&copy; 2026 <a href="https://copelabs.dev">Cope Labs</a> &middot; Nashville, TN</span>
+    </footer>
   </div>
 </body>
 </html>

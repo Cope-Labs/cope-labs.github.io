@@ -15,7 +15,6 @@ Cope Labs LLC builds pragmatic open-source tooling for people who monitor things
 
 - [margin](https://pypi.org/project/margin/): Typed health classification. Number in, health status out. Python, zero dependencies. MIT.
 - [margin-ts](https://www.npmjs.com/package/margin-ts): TypeScript port of margin. Express, Next.js, and vitest adapters. MIT.
-- [datum](https://pypi.org/project/datum/): Context-aware data tables with typed nulls and assumptions. Python.
 - [margin-ha](https://github.com/Cope-Labs/margin-ha): Home Assistant integration for health monitoring.
 
 ## Contact

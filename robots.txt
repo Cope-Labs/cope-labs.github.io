@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://copelabs.dev/sitemap.xml
+Sitemap: https://copelabs.dev/medicine-actions/sitemap.xml
+Sitemap: https://copelabs.dev/soil-microbiome-pipeline-core/sitemap.xml

@@ -1,0 +1,25 @@
+# Cope Labs
+
+> Open-source tools for security analysis, health classification, and applied research. Based in Nashville, TN.
+
+Cope Labs LLC builds pragmatic open-source tooling for people who monitor things that matter — servers, systems, and research data. Products span Linux vulnerability scanning, health classification libraries, soil microbiome analysis, and drug-discovery screening support.
+
+## Products
+
+- [selvo](https://selvo.dev): Linux CVE scanner that ranks by blast radius and exploit probability. 16 ecosystems, 8 data sources, distro backport filtering. Free tier, Pro $49/mo, Enterprise $299/mo.
+- [cairn](https://copelabs.dev/cairn/): Runtime signal capture and distillation for AI-assisted development. Python.
+- [soil microbiome pipeline](https://copelabs.dev/soil-microbiome-pipeline-core/): Functional screening of public soil metagenome databases for nitrogen fixation, carbon sequestration, and bioremediation potential. 237,662 communities screened.
+- [medicine actions](https://copelabs.dev/medicine-actions/): Inspectable drug-discovery screening decision packets with advance/repurpose/hold lanes for small biotech and research teams.
+
+## Open source libraries
+
+- [margin](https://pypi.org/project/margin/): Typed health classification. Number in, health status out. Python, zero dependencies. MIT.
+- [margin-ts](https://www.npmjs.com/package/margin-ts): TypeScript port of margin. Express, Next.js, and vitest adapters. MIT.
+- [datum](https://pypi.org/project/datum/): Context-aware data tables with typed nulls and assumptions. Python.
+- [margin-ha](https://github.com/Cope-Labs/margin-ha): Home Assistant integration for health monitoring.
+
+## Contact
+
+- GitHub organization: https://github.com/Cope-Labs
+- Domain: https://copelabs.dev
+- Location: Nashville, TN, USA

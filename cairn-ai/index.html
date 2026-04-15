@@ -3,9 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cairn &mdash; Cope Labs</title>
+  <title>cairn-ai &mdash; Cope Labs</title>
   <meta name="description" content="Runtime signal capture and distillation for AI coding agents. Captures test failures, runtime traces, and structural patterns — distills them into agent context that compounds over time.">
   <meta name="robots" content="index,follow">
+
+  <link rel="canonical" href="https://copelabs.dev/cairn-ai/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Cope Labs">
+  <meta property="og:url" content="https://copelabs.dev/cairn-ai/">
+  <meta property="og:title" content="cairn-ai — Runtime signal capture for AI coding agents">
+  <meta property="og:description" content="Instruments your Python code, distills failure patterns, feeds them into agent context so the next session knows what broke.">
+  <meta property="og:image" content="https://copelabs.dev/og.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="cairn-ai — Runtime signal capture for AI coding agents">
+  <meta name="twitter:description" content="Instruments Python code, distills failure patterns, feeds into agent context so the next session knows what broke.">
+  <meta name="twitter:image" content="https://copelabs.dev/og.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "cairn-ai",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Linux, macOS, Windows",
+    "url": "https://copelabs.dev/cairn-ai/",
+    "codeRepository": "https://github.com/Cope-Labs/cairn-ai",
+    "programmingLanguage": "Python",
+    "description": "Runtime signal capture and distillation for AI-assisted development. Captures test failures, runtime traces, and structural patterns; distills them into agent context that compounds over time. MCP server for Claude Code, Cline, and other MCP-compatible agents.",
+    "author": { "@type": "Organization", "name": "Cope Labs LLC", "url": "https://copelabs.dev" }
+  }
+  </script>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23f5f1e8'/><text x='50' y='68' font-size='52' font-family='Georgia,serif' font-weight='700' fill='%2316243b' text-anchor='middle'>CL</text></svg>">
@@ -243,7 +272,7 @@
 
     <header>
       <p class="eyebrow">Developer Tooling</p>
-      <h1>Cairn</h1>
+      <h1>cairn-ai</h1>
       <p class="tagline">Runtime signal capture and distillation for AI coding agents. Instruments your Python code, distills failure patterns, and feeds them into agent context so the next session knows what broke.</p>
     </header>
 
@@ -258,8 +287,8 @@
     <h2>The problem</h2>
     <p>AI coding agents start every session cold. They can read your code, but they don't know what failed last week, which patterns keep recurring, or whether the last fix held. The context window resets. Manual context documents go stale.</p>
 
-    <h2>What Cairn does</h2>
-    <p>Cairn captures structured signal from your running Python code and distills it into agent context that compounds over time:</p>
+    <h2>What cairn-ai does</h2>
+    <p>cairn-ai captures structured signal from your running Python code and distills it into agent context that compounds over time:</p>
 
     <ul class="features">
       <li><strong>Test signal</strong> &mdash; not just pass/fail, but assertion values, local variable state at failure, which source lines were implicated</li>
@@ -291,7 +320,7 @@ agent writes better code &rarr; richer signal &rarr; repeat</div>
     </ul>
 
     <h2>Agent integration</h2>
-    <p>Cairn exposes an MCP server with tools for Claude Code, Cline, or any MCP-compatible agent:</p>
+    <p>cairn-ai exposes an MCP server with tools for Claude Code, Cline, or any MCP-compatible agent:</p>
     <ul>
       <li><code>cairn_context</code> &mdash; full distilled context as Markdown</li>
       <li><code>cairn_search</code> &mdash; semantic search across the truth store</li>
@@ -304,8 +333,8 @@ agent writes better code &rarr; richer signal &rarr; repeat</div>
 
     <div class="links">
       <a href="https://pypi.org/project/cairn-ai/">PyPI</a>
-      <a href="https://github.com/Cope-Labs/cairn">GitHub</a>
-      <a href="https://github.com/Cope-Labs/cairn#quickstart">Quickstart</a>
+      <a href="https://github.com/Cope-Labs/cairn-ai">GitHub</a>
+      <a href="https://github.com/Cope-Labs/cairn-ai#quickstart">Quickstart</a>
     </div>
 
     <footer>

@@ -7,7 +7,7 @@ Cope Labs LLC builds pragmatic open-source tooling for people who monitor things
 ## Products
 
 - [selvo](https://selvo.dev): Linux CVE scanner that ranks by blast radius and exploit probability. 16 ecosystems, 8 data sources, distro backport filtering. Free tier, Pro $49/mo, Enterprise $299/mo.
-- [cairn](https://copelabs.dev/cairn/): Runtime signal capture and distillation for AI-assisted development. Python.
+- [cairn-ai](https://copelabs.dev/cairn-ai/): Runtime signal capture and distillation for AI-assisted development. Python.
 - [soil microbiome pipeline](https://copelabs.dev/soil-microbiome-pipeline-core/): Functional screening of public soil metagenome databases for nitrogen fixation, carbon sequestration, and bioremediation potential. 237,662 communities screened.
 - [medicine actions](https://copelabs.dev/medicine-actions/): Inspectable drug-discovery screening decision packets with advance/repurpose/hold lanes for small biotech and research teams.
 
